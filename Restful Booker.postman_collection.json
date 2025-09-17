@@ -1,0 +1,195 @@
+{
+	"info": {
+		"_postman_id": "9e1c22c4-0dc1-4b42-a5a7-26e6eda38d54",
+		"name": "Restful Booker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24470775"
+	},
+	"item": [
+		{
+			"name": "Booking_id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}",
+					"host": [
+						"{{server_url}}"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "sally",
+							"disabled": true
+						},
+						{
+							"key": "lastname",
+							"value": "brown",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth_Create_Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": {
+						"password": "password123",
+						"username": "admin"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{server_url}}?useername=admin&password=password123",
+					"host": [
+						"{{server_url}}"
+					],
+					"query": [
+						{
+							"key": "useername",
+							"value": "admin",
+							"description": "Username Authentication"
+						},
+						{
+							"key": "password",
+							"value": "password123",
+							"description": "Password for aunthentication"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create_Booking_Sally_Brown",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstname\" : \"Sally\",\r\n    \"lastname\" : \"Brown\",\r\n    \"totalprice\" : \"200\",\r\n    \"depositpaid\" : true,\r\n    \"bookingdates\" : {\r\n        \"checkin\" : \"2025-01-08\",\r\n        \"checkout\" : \"2025-05-08\"\r\n    },\r\n    \"additionalneeds\" : \"Breakfast in bed\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}?firstname=Sally&lastname=Brown&totalprice=200&depositpaid=true&checkin=2025-01-08&checkout=2025-05-08&additionalneeds=Breakfast in bed",
+					"host": [
+						"{{server_url}}"
+					],
+					"query": [
+						{
+							"key": "firstname",
+							"value": "Sally"
+						},
+						{
+							"key": "lastname",
+							"value": "Brown"
+						},
+						{
+							"key": "totalprice",
+							"value": "200"
+						},
+						{
+							"key": "depositpaid",
+							"value": "true"
+						},
+						{
+							"key": "checkin",
+							"value": "2025-01-08"
+						},
+						{
+							"key": "checkout",
+							"value": "2025-05-08"
+						},
+						{
+							"key": "additionalneeds",
+							"value": "Breakfast in bed"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Booking",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{server_url}}?id=602",
+					"host": [
+						"{{server_url}}"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "602"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
